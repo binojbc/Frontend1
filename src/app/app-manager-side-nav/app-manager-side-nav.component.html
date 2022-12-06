@@ -1,0 +1,66 @@
+<!-- manager side nav bar -->
+<div class="nav-content">
+    <ul class="nav-list" [ngClass]="{'nav-list-open': sideNavStatus}">
+
+        <li class="nav-list-item">
+            <a routerLink="app-managerprofile" >
+                
+                <i class='fa-solid fa-house white-color'></i>
+                
+            <span>
+                Home
+            </span>  </a>
+        </li>
+
+        <li class="nav-list-item">
+            <a routerLink="viewadded"  >
+                <i class="fa-solid fa-user"></i>
+                <span>
+                     Employee Profile
+                 </span>  </a>
+               
+        </li>
+
+   <!-- leave details for user -->
+   <li class="nav-list-item">
+    <a routerLink="app-managertask">
+        <i class="fa-solid fa-table"></i>
+        <span>
+            Leave Application
+        </span>
+    </a>
+</li>
+
+       
+       
+        <li class="nav-list-item">
+            <a routerLink='app-profile'>
+                <i class="fa-solid fa-user"></i>
+                <span>
+                    Employee Registration
+                </span>
+            </a>
+        </li>
+       
+
+
+  
+<!-- logout -->
+        <li class="nav-list-item">
+            <a (click)="logOut()">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>
+                    Logout
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+                
+       
+       
+                    
+         

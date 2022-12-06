@@ -1,0 +1,174 @@
+<!-- manager task details and update -->
+<div class="containe page m-3 bg-dark">
+    <div class="container-fluid  head-bg row ">
+        <div class="fw-bold text-center col-12 container-fluid p-0 m-0">
+            <!-- heading -->
+            <h1 class="fs-3 text-white  py-2"> Leave Management</h1>
+
+        </div>
+    </div>
+    <div class="container-fluid  head-bg">
+        <div class="fw-bold text-center  container-fluid p-0 m-0 form-group pb-2">
+            <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Enter text to search">
+        </div>
+    </div>
+
+    <!-- modal end -->
+
+
+    <!-- table start -->
+    <table class="table table-hover  bg-light ">
+        <!-- table heading strats -->
+        <thead class="table-success">
+            <tr>
+                <th scope="col">Sl No</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Approval Staus</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <!-- table heading ends-->
+        <!-- tablebo dy -->
+        <tbody class="table-atyle">
+            <!-- if data will be null -->
+            <tr *ngIf="TaskList.length < 1">
+                <td colspan="4" class="text-center pt-5 text-danger fw-bold">Their no Task details. please add Datas.
+                </td>
+            </tr>
+            <!-- display the task details -->
+            <tr *ngFor="let dataItem of TaskList | search: searchText; index as i">
+                <td>{{i+1}}</td>
+                <!-- <th scope="row">{{dataItem.EmployeeId}}</th> -->
+                <td>{{dataItem.EmployeeName}}</td>
+                <td class="table-status m-5">
+                    <p>{{dataItem.Status}}</p>
+                </td>
+                <td>{{dataItem.ApprovalStatus}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary ms-1" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1" (click)="edit(dataItem.EmployeeId)">
+                        Show
+                    </button>
+                </td>
+
+
+            </tr>
+
+            <!-- display task details end -->
+        </tbody>
+    </table>
+    <!-- table end -->
+
+
+    <!-- modal end -->
+</div>
+
+<!-- Modal update-->
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">All Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+                <div class="container">
+                    <p class="text-center text-success fw-bold ">{{success}}</p>
+                    <!-- form -->
+                    <form action="" class="row  g-4 px-5 py-1" #taskForms="ngForm" (ngSubmit)="onSubmits(taskForms)">
+                        <!-- name -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">Employee Name</label>
+                            <p class=" mb-1 ps-1 ">{{dataById.EmployeeName}} </p>
+
+                        </div>
+                        <!-- Status -->
+
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">Status</label>
+                            <p class=" mb-1 ps-1 ">{{dataById.Status}} </p>
+
+                        </div>
+                        <!-- StartTime -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">Start Time </label>
+                            <p class=" mb-1 ps-1 ">Date : {{dataById.StartTime | date:'fullDate'}} Time :
+                                {{dataById.StartTime | date:'shortTime'}}</p>
+
+                        </div>
+                        <!-- EndTime -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">End Time </label>
+                            <p class=" mb-1 ps-1 ">Date : {{dataById.EndTime | date:'fullDate'}} Time :
+                                {{dataById.EndTime | date:'shortTime'}}</p>
+
+                        </div>
+                        <!-- CreatedDate -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 ">
+                            <label class="fw-bold mb-1 ps-1">Created Date</label>
+                            <p class=" mb-1 ps-1 ">Date : {{dataById.CreatedDate | date:'fullDate'}} </p>
+                        </div>
+                        <!-- Description -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">Description</label>
+                            <p class=" mb-1 ps-1 ">{{dataById.Description}} </p>
+
+                        </div>
+                        <!--Approved  -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">Status</label>
+                            <div class="form-control">
+                                <label class="radio-inline mx-1">
+                                    <input type="radio" name="ApprovedStatus" value="Approved"
+                                        [(ngModel)]="dataById.ApprovalStatus" ngModel>
+                                    Approved
+                                </label>
+                                <label class="radio-inline mx-1">
+                                    <input type="radio" name="ApprovedStatus" value="Rejected"
+                                        [(ngModel)]="dataById.ApprovalStatus" ngModel>
+                                    Rejected
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Approved By-->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                            <label class="fw-bold mb-1 ps-1">Approved By </label>
+                            <div class="form-control">
+                                <label class="radio-inline mx-1">
+                                    <input type="radio" name="AssignedManager" value="{{managerName}}"
+                                        [(ngModel)]="dataById.AssignedManager" required ngModel>
+                                    {{managerName}}
+                                </label>
+
+                            </div>
+                        </div>
+                        <!-- Approval Status -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 "
+                            *ngIf="!approvalStatus(dataById.ApprovalStatus)">
+                            <label class="fw-bold mb-1 ps-1">Approval Status</label>
+                            <p class=" mb-1 ps-1 ">{{dataById.ApprovalStatus }} </p>
+                        </div>
+                        <!-- Approved By -->
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 "
+                            *ngIf="!approvalStatus(dataById.ApprovalStatus)">
+                            <label class="fw-bold mb-1 ps-1">Approved By</label>
+                            <p class=" mb-1 ps-1 " [ngStyle]="{'color': approvalByColor(dataById.AssignedManager)}">{{dataById.AssignedManager}} </p>
+                        </div>
+
+                        <!-- save button and cancel button -->
+                        <div class="col-12 ">
+                            <button class="btn btn-success" style="width: 100px" type="submit"
+                                [class.disabled]="taskForms.invalid " data-bs-dismiss="modal"
+                                aria-label="Close">Save</button>
+                            <button class="btn btn-danger ms-3" style="width: 100px" (click)="cancel(taskForms)"
+                                data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                        </div>
+                    </form>
+                    <!-- form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

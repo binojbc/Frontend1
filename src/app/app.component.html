@@ -1,0 +1,163 @@
+
+<section class=" vh-100 bg-light login-form" style="background-color: #9A616D; " *ngIf="login">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+       <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+
+      <div class="col-md-6  d-flex align-items-center">
+        <div class="card-body p-lg-5 text-black">
+      <form class="bg-white p-5 " #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <h3 class="mb-5 fw-bold text-center">LOGIN </h3>
+        <p class="text-center fw-bold text-danger">{{failed}}</p>
+        <div class="d-flex align-items-center mb-3 pb-1">
+          <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+          <span class="h1 fw-bold mb-0">Employee Login</span>
+        </div>
+         
+        <!-- username -->
+        <div class="form-outline mb-4">
+        <label class=" fw-bold">Username</label>
+          <input type="text" name="userName" #userName="ngModel" class="form-control "
+            pattern="[a-zA-Z ]+$" required ngModel />
+          <small class="text-danger justify-content-left" *ngIf="userName.invalid && userName.touched">Please enter a
+            valid
+            username.</small>
+        </div>
+        <!-- password -->
+        <div class="form-outline mb-4">
+          <label class=" fw-bold">Password</label>
+          <input type="password" name="password" #password="ngModel" class="form-control "
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Z])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required ngModel />
+          <small class="text-danger text-left" *ngIf="password.invalid && password.touched">Please enter valid
+            Password.</small>
+        </div>
+        <!--login button -->
+        <div class="text-center">
+          <button class="btn btn-primary btn-md " type="submit" [class.disabled]="loginForm.invalid"
+            [style.backgroundColor]="loginForm.touched? loginForm.invalid? 'red':'green' : 'blue' ">Login</button>
+
+        </div>
+      </form>
+       </div></div></div></div>
+      </div>
+
+
+      <!--register button -->
+      <!-- <div class="text-center mt-0 bg-white px-5">
+        <p class="fw-bold">or</p>
+        <p>Do you have no account?</p>
+        <button class="btn btn-primary btn-md w-25 " data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Register</button>
+      </div>
+    </div>
+  </div> -->
+  <!-- register form -->
+  <!-- <div class="modal fade  col-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body "> -->
+          <!-- add User modal content -->
+          <!-- <div class="container"> -->
+            <!-- succes tag -->
+            <!-- <p class="text-success fw-bold fs-5 text-center">{{succesMessage}}</p> -->
+            <!-- form -->
+            <!-- <form action="" class="row  g-4 px-5 py-1" #userForm="ngForm"
+              (ngSubmit)="onSubmitUser(userForm.value,userForm) ">
+               -->
+               <!--Username -->
+               <!-- <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Username</label>
+                <input type="text" placeholder="Enter Last Name" class="form-control " name="UserName"
+                  #UserName="ngModel" pattern="[a-zA-Z ]+$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="UserName.invalid && UserName.touched">Please
+                  enter a
+                  valid username.</small>
+              </div> -->
+
+              <!--Full name -->
+              <!-- <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Full Name</label>
+                <input type="text" placeholder="Enter full Name" class="form-control " name="FullName"
+                  #FullName="ngModel" pattern="[a-zA-Z ]+$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="FullName.invalid && FullName.touched">Please
+                  enter a
+                  valid full name.</small>
+              </div> -->
+
+ <!--Department -->
+              <!-- <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Department</label>
+                <input type="text" placeholder="Enter Department" class="form-control " name="Department"
+                  #Department="ngModel" pattern="[a-zA-Z ]+$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="Department.invalid && Department.touched">Please
+                  enter a
+                  valid Department.</small> -->
+              <!-- </div> -->
+              <!-- Designation -->
+              <!-- <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Designation</label>
+                <div class="form-control">
+                  <label class="radio-inline mx-1">
+                    <input type="radio" name="Designation" value="Manager" ngModel>
+                    Manager
+                  </label>
+                  <label class="radio-inline mx-1">
+                    <input type="radio" name="Designation" value="User" ngModel>
+                    Employee -->
+                  <!-- </label>
+                </div>
+              </div> -->
+              <!--Password -->
+              <!-- <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Password</label>
+                <input type="password" placeholder="Enter Password" class="form-control " name="Password"
+                  #Password="ngModel"
+                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Z])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="Password.invalid && Password.touched">Please
+                  enter a
+                  valid Password.</small>
+              </div> -->
+
+              <!-- save button and cancel button-->
+              <!-- <div class="col-12 ">
+                <button class="btn btn-success" style="width: 100px" type="submit"
+                  [class.disabled]="userForm.invalid ">Save</button>
+                <button class="btn btn-danger ms-3" style="width: 100px" (click)="cancel(userForm)">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<div class="container-fluid g-0 " *ngIf="dashboardShow">
+  <!-- dashboard content of task details -->
+  <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
+  <main>
+    <!-- user dashboard -->
+    <app-sidenav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open': sideNavStatus}" *ngIf="userSideNav">
+    </app-sidenav>
+    <!-- manager dashboard -->
+
+    <app-app-manager-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open': sideNavStatus}"
+      *ngIf="managerSideNav"></app-app-manager-side-nav>
+
+    <div class="display-area p-3" [ngClass]="
+        {'display-area-shrink': sideNavStatus}">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+   

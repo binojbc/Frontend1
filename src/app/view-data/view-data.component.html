@@ -1,0 +1,27 @@
+<div class="bread-crumb">
+        <div>    <span>EmployeeDetails</span>   </div>
+</div>
+<div class="container">
+    <div class="flex">
+            <div class="card c-hover" *ngFor="let employee of employeeData_get">
+                     <h1>{{employee.profile_pic}}</h1>
+                    <H3>{{employee.UserName}}</H3>
+                    <div>Department:{{employee.Department}}</div>
+                    <div> Designation:{{employee.Designation}}</div>
+                    
+                    <div> EmergencyContact: {{employee.EmergencyContact}}</div>
+                    
+                    <div>BloodGroup: {{employee.BloodGroup}}</div>
+
+                    <div> DOB: {{employee. dob}}</div>
+                    <div> WorkLocation: {{employee.WorkLocation}}</div>
+                    <div>Address: {{employee.Address}}</div>
+                    <div> MaritalStatus: {{employee. MaritalStatus}}</div>
+
+                    <div class="buttons">
+                        <a routerLink="edit/{{employee.id}}"><button class="btn secondary" style="margin-left: 0;">Edit</button></a>
+                        <button (click)="deleteTheData(employee.id)" class="btn danger">Delete</button>  
+                    </div>
+            </div>
+    </div>
+</div>

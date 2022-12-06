@@ -1,0 +1,90 @@
+<section class=" bg-light login-form" *ngIf="login">
+  <div class="container">
+    
+
+  
+      </div>
+       <!-- register form -->
+ 
+      
+     
+        <div class="modal-body ">
+          <!-- add User modal content -->
+          <div class="container">
+            <!-- succes tag -->
+            <p class="text-success fw-bold fs-5 text-center">{{succesMessage}}</p>
+            <!-- form -->
+            <form action="" class="row  g-4 px-5 py-1" #userForm="ngForm"
+              (ngSubmit)="onSubmitUser(userForm.value,userForm) ">
+              
+               <!--Username -->
+               <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Username</label>
+                <input type="text" placeholder="Enter Last Name" class="form-control " name="UserName"
+                  #UserName="ngModel" pattern="[a-zA-Z ]+$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="UserName.invalid && UserName.touched">Please
+                  enter a
+                  valid username.</small>
+              </div>
+
+              <!--Full name -->
+              <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Full Name</label>
+                <input type="text" placeholder="Enter full Name" class="form-control " name="FullName"
+                  #FullName="ngModel" pattern="[a-zA-Z ]+$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="FullName.invalid && FullName.touched">Please
+                  enter a
+                  valid full name.</small>
+              </div>
+
+               
+  
+
+              <!--Department -->
+              <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Department</label>
+                <input type="text" placeholder="Enter Department" class="form-control " name="Department"
+                  #Department="ngModel" pattern="[a-zA-Z ]+$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="Department.invalid && Department.touched">Please
+                  enter a
+                  valid Department.</small>
+              </div>
+              <!-- Designation -->
+              <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Designation</label>
+                <div class="form-control">
+                  <label class="radio-inline mx-1">
+                    <input type="radio" name="Designation" value="Manager" ngModel>
+                    Manager
+                  </label>
+                  <label class="radio-inline mx-1">
+                    <input type="radio" name="Designation" value="User" ngModel>
+                    Employee
+                  </label>
+                </div>
+              </div>
+              <!--Password -->
+              <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                <label class="fw-bold mb-1 ps-1">Password</label>
+                <input type="password" placeholder="Enter Password" class="form-control " name="Password"
+                  #Password="ngModel"
+                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Z])(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required ngModel>
+                <small class="text-danger justify-content-left" *ngIf="Password.invalid && Password.touched">Please
+                  enter a
+                  valid Password.</small>
+              </div>
+
+              <!-- save button and cancel button-->
+              <div class="col-12 ">
+                <button class="btn btn-success" style="width: 100px" type="submit"
+                  [class.disabled]="userForm.invalid ">Save</button>
+                <button class="btn btn-danger ms-3" style="width: 100px" (click)="cancel(userForm)">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+
+    
+  
+  

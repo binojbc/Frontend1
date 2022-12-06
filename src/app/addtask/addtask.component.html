@@ -1,0 +1,71 @@
+<!-- add task -->
+<div class="container">
+    <!-- succes tag -->
+    <p class="text-success fw-bold fs-5 text-center">{{succesMessage}}</p>
+    <!-- form -->
+    <form action="" class="row  g-4 px-5 py-1" #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm.value,taskForm) ">
+
+        <!-- name -->
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+            <label class="fw-bold mb-1 ps-1">Employee Name</label>
+            <input type="text" placeholder="Enter Employee Name" class="form-control " name="EmployeeName" #EmployeeName="ngModel"
+                pattern="[a-zA-Z ]+$" required ngModel>
+            <small class="text-danger justify-content-left" *ngIf="EmployeeName.invalid && EmployeeName.touched">Please enter a
+                valid Employee name.</small>
+        </div>
+        <!-- Status -->
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+            <label class="fw-bold mb-1 ps-1">Status</label>
+            <div class="form-control">
+                <label class="radio-inline mx-1">
+                    <input type="radio" name="Status" value="Completed" ngModel>
+                    Completed
+                </label>
+                <label class="radio-inline mx-1">
+                    <input type="radio" name="Status" value="In Progress" ngModel>
+                    In Progress
+                </label>
+            </div>
+        </div>
+        <!-- StartTime -->
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+            <label class="fw-bold mb-1 ps-1">Start Time</label>
+            <input type="datetime-local" placeholder="Enter start time" class="form-control " name="StartTime"
+                #StartTime="ngModel" required ngModel>
+            <small class="text-danger justify-content-left" *ngIf="StartTime.invalid && StartTime.touched">Please enter
+                a valid date and time.</small>
+        </div>
+        <!-- EndTime -->
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+            <label class="fw-bold mb-1 ps-1">End Time</label>
+            <input type="datetime-local" placeholder="Enter end time" class="form-control " name="EndTime"
+                #EndTime="ngModel" required ngModel>
+            <small class="text-danger justify-content-left" *ngIf="EndTime.invalid && EndTime.touched">Please enter a
+                valid date and time.</small>
+        </div>
+        <!-- CreatedDate -->
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 ">
+            <label class="fw-bold mb-1 ps-1">Created Date</label>
+            <input type="date" placeholder="Enter Create dDate" class="form-control " name="CreatedDate"
+                #CreatedDate="ngModel" required ngModel>
+            <small class="text-danger justify-content-left" *ngIf="CreatedDate.invalid && CreatedDate.touched">Please
+                Enter a valid Date.</small>
+        </div>
+        <!-- Description -->
+        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+            <label class="fw-bold mb-1 ps-1">Description</label>
+            <textarea type="text" placeholder="Enter Description" class="form-control " name="Description"
+                #Description="ngModel" required ngModel></textarea>
+            <small class="text-danger justify-content-left" *ngIf="Description.invalid && Description.touched">Please
+                enter a valid Description.</small>
+        </div>
+
+
+        <!-- save button and cancel button-->
+        <div class="col-12 ">
+            <button class="btn btn-success" style="width: 100px" type="submit"
+                [class.disabled]="taskForm.invalid ">Save</button>
+            <button class="btn btn-danger ms-3" style="width: 100px" (click)="cancel(taskForm)">Cancel</button>
+        </div>
+    </form>
+</div>

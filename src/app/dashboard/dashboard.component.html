@@ -1,0 +1,49 @@
+<!-- dashboard -->
+<!-- cards starts-->
+<section class="cards ">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4 container  m-1 bs-card ">
+            <!--no of total task -->
+            <div class="col py-1">
+                <div class="card h-100 card-bs-bg " style="height:70px">
+
+                    <div class="card-body">
+                        <h5 class="card-title  bs-card-title px-3"><i class="fa-solid fa-bars-progress me-4"></i>Total
+                            Leaves :
+                            {{TaskLists.length}}
+                        </h5>
+                    </div> 
+                </div>
+            </div>
+            <!--no of completed task -->
+            <div class="col py-1 ">
+                <div class="card h-100 card-bs-bg">
+                    <div class="card-body ">
+                        <h5 class="card-title  bs-card-title px-3"><i
+                                class="fa-solid fa-circle-check me-3"></i>Completed Leaves:{{totalCompleted}}</h5>
+                    </div>
+                </div>
+            </div>
+            <!--no of  peogress task -->
+            <div class="col py-1">
+                <div class="card h-100 card-bs-bg">
+                    <div class="card-body ">
+                        <h5 class="card-title  bs-card-title px-3"><i class="fa-solid fa-spinner me-4"></i>In Progress:
+                            {{totalProgress}}</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- no of approved tasks -->
+            <div class="col py-1">
+                <div class="card h-100 card-bs-bg">
+                    <div class="card-body ">
+                        <h5 class="card-title  bs-card-title px-3"> <i class="fa-solid fa-thumbs-up me-4"></i>Approved
+                            Leaves:{{totalApproval}}</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- cards ends -->

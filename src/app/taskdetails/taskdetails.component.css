@@ -1,0 +1,23 @@
+.modal-content {
+    background-color: #ffffff;
+}
+.table-status{
+    /* color: #ffffff; */
+    font-weight: 900;
+    font-size: 14px;
+    color: #ffffff;
+}
+.table-status p{
+    padding: 5px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* .table-striped>tbody>tr:nth-of-type(odd)>*.table-status{
+    color: #ffffff;
+} */
+
+element.style{
+    margin: 20px;
+    padding: 100px;
+}
